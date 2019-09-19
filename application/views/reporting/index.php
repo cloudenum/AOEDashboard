@@ -34,7 +34,6 @@
                       <div class="col-lg-12">
                         <button class="btn btn-success btn-block mg-b-10"><i class="fa fa-download mg-r-10"></i> Download</button>
                       </div>
-                    </div>
                     </div><!-- row -->
                 </div>
             </div><!-- br-section-wrapper -->
