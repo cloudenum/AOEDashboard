@@ -235,7 +235,7 @@
                 </div>
             </div><!-- br-section-wrapper -->
         </div><!-- br-pagebody -->
-
+        <?php $this->load->view('template/footer');?>
     </div><!-- br-mainpanel -->
     <!-- ########## END: MAIN PANEL ########## -->
     

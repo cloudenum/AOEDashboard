@@ -69,7 +69,7 @@
                 </div>
             </div>
         </div><!-- br-pagebody -->
-
+        <?php $this->load->view('template/footer');?>
     </div><!-- br-mainpanel -->
     <!-- ########## END: MAIN PANEL ########## -->
 

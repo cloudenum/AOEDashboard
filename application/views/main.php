@@ -109,7 +109,7 @@
           </div><!-- col-4 -->
         </div><!-- row -->
         </div><!-- br-pagebody -->
-
+        <?php $this->load->view('template/footer');?>
     </div><!-- br-mainpanel -->
     <!-- ########## END: MAIN PANEL ########## -->
     <?php $this->load->view('template/js', [

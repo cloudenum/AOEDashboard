@@ -32,23 +32,7 @@
                 <div class="table-wrapper">
                     <table id="participantTable" class="table display nowrap">
                         <thead>
-                            <tr>
-                            <!-- <th class="">ID</th> -->
-                            <!-- <th class="">Fullname</th> -->
-                            <!-- <th class="wd-20p">Ref Number</th> -->
-                            <!-- <th class="wd-15p">Identity Number</th> -->
-                            <!-- <th class="">Birth</th> -->
-                            <!-- <th class="wd-25p">Birth Date</th> -->
-                            <!-- <th class="">Gender</th> -->
-                            <!-- <th class="wd-15p">NEM</th> -->
-                            <!-- <th class="">School</th> -->
-                            <!-- <th class="wd-15p">Department</th> -->
-                            <!-- <th class="">E-mail</th> -->
-                            <!-- <th class="wd-25p">Registration</th> -->
-                            <!-- <th class="">Action</th> -->
-                            <!-- <th class="wd-25p">Choice 1</th> -->
-                            <!-- <th class="wd-25p">Choice 2</th> -->
-                            </tr>
+                            
                         </thead>
                         <tbody>
                         </tbody>
@@ -57,7 +41,7 @@
                 
             </div><!-- br-section-wrapper -->
         </div><!-- br-pagebody -->
-
+        <?php $this->load->view('template/footer');?>
     </div><!-- br-mainpanel -->
     <!-- ########## END: MAIN PANEL ########## -->
 
