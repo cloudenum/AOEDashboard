@@ -2,7 +2,7 @@
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Main extends CI_Controller {
+class Main extends MY_Controller {
 
     public function __construct()
     {
@@ -16,9 +16,7 @@ class Main extends CI_Controller {
 
     public function index()
     {
-        if (!$this->session->logged_in) {
-            redirect('/login', 'refresh');
-        }
+       
         
         // $client->send
         
@@ -28,8 +26,7 @@ class Main extends CI_Controller {
     }
 
     public function logout(){
-        $this->session->sess_destroy();
-        redirect(base_url());
+       redirect('logout','refresh');
     }
 
 }

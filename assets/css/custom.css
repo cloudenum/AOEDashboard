@@ -4,6 +4,10 @@
   justify-content: center;
 }
 
+.text-wrap {
+  white-space: normal!important;
+}
+
 .logout-section a button {
   height: 60px;
   border-radius: 0;

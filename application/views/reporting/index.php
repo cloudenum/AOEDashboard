@@ -19,23 +19,23 @@
                 <p class="br-section-text"> </p>
                 <!-- <div class="form-layout form-layout-1"> -->
                     <!-- <form id="uploadForm" method="POST" action="" enctype="multipart/form-data" data-parsley-validate> -->
-                    <div class="row mg-b-25">                       
-                      <div class="col-lg-12">
-                          <div class="form-group mg-b-10-force">
-                              <label class="form-control-label">Jenis Pengumuman: <span class="tx-danger">*</span></label>
-                              <select name="question_group" id="question-group-select" class="form-control select2" data-placeholder="Pilih soal" required>
-                                <option>Pillih ...</option>  
-                                <option>Pengumuman hasil ujian</option>
-                              </select>
-                          </div>
-                      </div><!-- col-4 -->
-                    </div>
-                    <div class="row mg-b-25">
-                      <div class="col-lg-12">
-                        <button class="btn btn-success btn-block mg-b-10"><i class="fa fa-download mg-r-10"></i> Download</button>
+                <div class="row mg-b-25">                       
+                  <div class="col-lg-12">
+                      <div class="form-group mg-b-10-force">
+                          <label class="form-control-label">Jenis Pengumuman: <span class="tx-danger">*</span></label>
+                          <select name="question_group" id="question-group-select" class="form-control select2" data-placeholder="Pilih soal" required>
+                            <option>Pillih ...</option>  
+                            <option>Pengumuman hasil ujian</option>
+                          </select>
                       </div>
-                    </div><!-- row -->
+                  </div><!-- col-4 -->
                 </div>
+                <div class="row mg-b-25">
+                  <div class="col-lg-12">
+                    <button class="btn btn-success btn-block mg-b-10"><i class="fa fa-download mg-r-10"></i> Download</button>
+                  </div>
+                </div><!-- row -->
+            
             </div><!-- br-section-wrapper -->
         </div><!-- br-pagebody -->
         <?php $this->load->view('template/footer');?>

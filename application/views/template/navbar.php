@@ -28,7 +28,7 @@
             <a id="btnLogout" href="" class="pos-relative">
             <!-- <i class="icon ion-ios-chatboxes-outline"></i> -->
             <!-- start: if statement -->
-            <button class="btn btn-danger">LOGOUT</button>
+            <a href="<?php echo base_url('logout');?>"><button class="btn btn-danger">LOGOUT</button></a>
             <!-- end: if statement -->
             </a>
         </div><!-- navicon-right -->

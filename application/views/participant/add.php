@@ -38,6 +38,8 @@
                             <input class="form-control" type="text" name="fullname" placeholder="Enter fullname" required>
                             </div>
                         </div><!-- col-4 -->
+                    </div>
+                    <div class="row mg-b-25">                       
                         <div class="col-lg-4">
                             <div class="form-group">
                             <label class="form-control-label">Password <span class="tx-danger">*</span></label>
@@ -65,6 +67,8 @@
                             </div>
                             </div>
                         </div><!-- col-4 -->
+                    </div>
+                    <div class="row mg-b-25">                       
                         <div class="col-lg-4">
                             <div class="form-group">
                             <label class="form-control-label">Gender <span class="tx-danger">*</span></label>
@@ -114,6 +118,8 @@
                             </select>
                             </div>
                         </div><!-- col-4 -->
+                    </div>
+                    <div class="row mg-b-25">                       
                         <div class="col-lg-4">
                             <div class="form-group">
                             <label class="form-control-label">NEM: <span class="tx-danger">*</span></label>
@@ -132,42 +138,48 @@
                             <input class="form-control" type="text" name="department" placeholder="Enter department">
                             </div>
                         </div><!-- col-4 -->
-                        <div class="col-lg-8">
+                    </div>
+                    <div class="row mg-b-25">                       
+                        <div class="col-lg-4">
                             <div class="form-group mg-b-10-force">
                             <label class="form-control-label">Address</label>
                             <input class="form-control" type="text" name="address" placeholder="Enter address">
                             </div>
-                        </div><!-- col-8 -->
-                        <div class="col-lg-8">
+                        </div><!-- col-4 -->
+                        <div class="col-lg-4">
                             <div class="form-group mg-b-10-force">
                             <label class="form-control-label">Regency/District</label>
                             <input class="form-control" type="text" name="regency" placeholder="Enter regency">
                             </div>
-                        </div><!-- col-8 -->
-                        <div class="col-lg-8">
+                        </div><!-- col-4 -->
+                        <div class="col-lg-4">
                             <div class="form-group mg-b-10-force">
                             <label class="form-control-label">Province/State</label>
                             <input class="form-control" type="text" name="province" placeholder="Enter province">
                             </div>
-                        </div><!-- col-8 -->
-                        <div class="col-lg-8">
+                        </div><!-- col-4 -->
+                    </div>
+                    <div class="row mg-b-25">                       
+                        <div class="col-lg-4">
                             <div class="form-group mg-b-10-force">
                             <label class="form-control-label">Citizenship</label>
                             <input class="form-control" type="text" name="citizen" placeholder="Enter your country">
                             </div>
-                        </div><!-- col-8 -->
-                        <div class="col-lg-8">
+                        </div><!-- col-4 -->
+                        <div class="col-lg-4">
                             <div class="form-group mg-b-10-force">
                             <label class="form-control-label">ZIP Code </label>
                             <input class="form-control" type="text" name="postal_code" placeholder="Enter ZIP code" >
                             </div>
-                        </div><!-- col-8 -->
-                        <div class="col-lg-8">
+                        </div><!-- col-4 -->
+                        <div class="col-lg-4">
                             <div class="form-group mg-b-10-force">
                             <label class="form-control-label">Telephone </label>
                             <input class="form-control" type="text" name="telephone" placeholder="Enter phone number">
                             </div>
-                        </div><!-- col-8 -->
+                        </div><!-- col-4 -->
+                    </div>
+                    <div class="row mg-b-25">                       
                         <div class="col-lg-4">
                             <div class="form-group">
                             <label class="form-control-label">Email address <span class="tx-danger">*</span></label>
@@ -199,6 +211,8 @@
                             </select>
                             </div>
                         </div><!-- col-4 -->
+                    </div>
+                    <div class="row mg-b-25">                       
                         <div class="col-lg-4">
                             <div class="form-group mg-b-10-force">
                             <label class="form-control-label">Soal yang dikerjakan: <span class="tx-danger">*</span></label>
@@ -226,7 +240,6 @@
                             </div>
                         </div>
                     </div><!-- row -->
-
                     <div class="form-layout-footer">
                         <button class="btn btn-info" type="submit" id="btnSubmit">Tambah Peserta</button>
                         <button class="btn btn-secondary">Cancel</button>    

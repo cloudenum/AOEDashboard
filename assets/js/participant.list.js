@@ -1,46 +1,69 @@
 'use-strict';
 function expandRowTemplate(rowData) {
-    return '<table cellpadding="5" cellspacing="0" border="0" style="padding-left:50px;">'+
-        '<tr>'+
-            '<td>Nomor Identitas:</td>'+
-            '<td>' + rowData.identity_number + '</td>'+
-        '</tr>'+
-        '<tr>'+
-            '<td>Ref. number:</td>'+
-            '<td>' + rowData.reference_number + '</td>'+
-        '</tr>'+
-        '<tr>'+
-            '<td>Agama:</td>'+
-            '<td>' + rowData.religion + '</td>'+
-        '</tr>'+
-        '<tr>'+
-            '<td>Ref. number:</td>'+
-            '<td>' + rowData.reference_number + '</td>'+
-        '</tr>'+
-        '<tr>'+
-            '<td>Ref. number:</td>'+
-            '<td>' + rowData.reference_number + '</td>'+
-        '</tr>'+
-        '<tr>'+
-            '<td>Ref. number:</td>'+
-            '<td>' + rowData.reference_number + '</td>'+
-        '</tr>'+
-        '<tr>'+
+    return (
+    '<div class="container">'+
         
-            //     <div class=\"row flex-nowrap\">
-            //         <div class=\"col-xs-5  mg-r-5 mg-l-5\">
-            //             <button class=\"btn btn-info btn-block btn-modal-info\" data-id=\"${rowData.id}\" data-toggle=\"modal\" data-target=\"#modal-info\">
-            //                 Info
-            //             <\/button>
-            //         <\/div>
-            //         <div class=\"col-xs-5 mg-r-5 mg-l-5\">
-            //             <button data-id=\"${rowData.id}\" class=\"btn-delete btn btn-danger btn-block\">
-            //                 Delete
-            //             <\/button>
-            //         <\/div>
-            //     <\/div>`+
-        '</tr>'+
-    '</table>';
+        '<div class="row">'+
+            '<div class="col-sm-5">'+
+                '<div class="row  ">'+
+                    '<div class="col-sm-4"><p>Nomor Identitas:</p></div>'+
+                    '<div class="col-sm-8 text-wrap bd-l bd-gray-400"><p>' + rowData.identity_number + '</p></div>'+
+                '</div>'+
+                '<div class="row  ">'+
+                    '<div class="col-sm-4"><p>Agama:</p></div>'+
+                    '<div class="col-sm-8 text-wrap bd-l bd-gray-400"><p>' + rowData.religion + '</p></div>'+
+                '</div>'+
+                '<div class="row  ">'+
+                    '<div class="col-sm-4"><p>NEM:</p></div>'+
+                    '<div class="col-sm-8 text-wrap bd-l bd-gray-400"><p>' + rowData.nem + '</p></div>'+
+                '</div>'+
+                '<div class="row  ">'+
+                    '<div class="col-sm-4"><p>Jurusan:</p></div>'+
+                    '<div class="col-sm-8 text-wrap bd-l bd-gray-400"><p>' + rowData.department + '</p></div>'+
+                '</div>'+
+                '<div class="row  ">'+
+                    '<div class="col-sm-4"><p>Alamat:</p></div>'+
+                    '<div class="col-sm-8 text-wrap bd-l bd-gray-400"><p>' + rowData.address + ', ' + rowData.regency + ', ' + rowData.province + ' ' + rowData.postal_code + '</p></div>'+
+                '</div>'+
+            '</div>'+
+            '<div class="col-sm-5">'+
+                '<div class="row  ">'+
+                    '<div class="col-sm-4"><p>Gol. Darah:</p></div>'+
+                    '<div class="col-sm-8 text-wrap bd-l bd-gray-400"><p>' + rowData.blood_type + '</p></div>'+
+                '</div>'+
+                '<div class="row  ">'+
+                    '<div class="col-sm-4"><p>Telepon:</p></div>'+
+                    '<div class="col-sm-8 text-wrap bd-l bd-gray-400"><p>' + rowData.telephone + '</p></div>'+
+                '</div>'+
+                '<div class="row  ">'+
+                    '<div class="col-sm-4"><p>Pilihan 1:</p></div>'+
+                    '<div class="col-sm-8 text-wrap bd-l bd-gray-400"><p>' + rowData.choice1 + '</p></div>'+
+                '</div>'+
+                '<div class="row  ">'+
+                    '<div class="col-sm-4"><p>Pilihan 2:</p></div>'+
+                    '<div class="col-sm-8 text-wrap bd-l bd-gray-400"><p>' + rowData.choice2 + '</p></div>'+
+                '</div>'+
+                '<div class="row  ">'+
+                    '<div class="col-sm-4"><p>Tanggal Ujian:</p></div>'+
+                    '<div class="col-sm-8 text-wrap bd-l bd-gray-400"><p>' + rowData.exam_date + '</p></div>'+
+                '</div>'+
+            '</div>'+
+            '<div class="col-sm-2 flex no-wrap">'+
+                '<div class="row  ">'+
+                    '<div class=\"col-sm-12 mg-b-2\">'+
+                        '<button class=\"btn btn-info btn-sm btn-block btn-modal-info\" data-id=\"' + rowData.id + '\" data-toggle=\"modal\" data-target=\"#modal-info\">'+
+                            'Info'+
+                        '<\/button>'+
+                    '<\/div>'+
+                    '<div class=\"col-sm-12 mg-t-2\">'+
+                        '<button data-id=\"' + rowData.id + '\" class=\"btn-delete btn btn-danger btn-block btn-sm\">'+
+                            'Delete'+
+                        '<\/button>'+
+                    '<\/div>'+
+                '</div>'+    
+            '</div>'+
+        '</div>'+
+    '</div>');
 }
 
 $(document).ready(function() {
@@ -117,7 +140,7 @@ $(document).ready(function() {
                 request.setRequestHeader('Authorization', 'Bearer ' + Cookies.get('access_token'))
             },
             dataSrc: (resData) => {
-                participantData = resData.data;
+                
                 return resData.data;
             },
             error: (jqXHR) => {
@@ -184,6 +207,7 @@ $(document).ready(function() {
                     '<div class="sk-child sk-bounce3 bg-gray-800"></div>'+
                 '</div>',
             searchPlaceholder: 'Search...',
+            sSearch: ''
         }
     });
 
@@ -226,6 +250,8 @@ $(document).ready(function() {
                 .then((response) => response.json())
                 .then((json) => {
                     row.child(expandRowTemplate(json.data)).show();
+
+                    participantData[row.data().id] = json.data;
                 })
                 .catch((error) => {
                     Swal.fire('Gagal melakukan koneksi', error.statusText, 'error');
@@ -233,27 +259,149 @@ $(document).ready(function() {
             }
         } );
     // }
+
+    
+    // $('#question-group-select').select2("updateResults");
+  
+    $('#editForm').submit((event) => {
+      timedLog('Event submit trigerred.');
+  
+      event.preventDefault();
+      let data = new FormData(event.target);
+      $('#btnSaveChanges').prop("disabled", true);
+      Swal.showLoading()
+      
+      timedLog('Sending form data ...');
+  
+      $.ajax({
+        method: "POST",
+        contentType: false,
+        url: baseUrl('participant/update', true),
+        data: data,
+        headers: {
+            'Authorization' : 'Bearer ' + Cookies.get('access_token')
+        },
+        processData: false,  // Important!
+        cache: false,
+      })
+      .always(() => {  
+        $('#btnSaveChanges').prop("disabled", false);
+        Swal.close();
+      })
+      .done((resData) => {
+        try {
+          console.log(resData);
+          timedLog('Edit success.');
+          Swal.fire("Berhasil edit data", `ID Peserta : ${resData.data.id}`, "success");
+        }
+        catch(e) {
+          console.error(e.message);
+        }
+      })
+      .fail((xhr) => {
+        try {
+          const res = JSON.parse(xhr.responseText);
+          
+          console.log(res);
+          
+          let messages = '';
+          for (const key in res.meta.message) {
+            if (res.meta.message.hasOwnProperty(key)) {
+              messages += '<br/>' + res.meta.message[key];    
+            }
+          }
+  
+          timedLog('Add failed.');
+          Swal.fire(xhr.statusText, messages, "warning");
+        }
+        catch(e) {
+          console.error(e.message);
+        }
+      });
+    });
+  
+  
     const modalElement = $('#modal-info');
-    const inputEditElement = $('.input-edit');
+    const inputEditElements = $('.input-edit');
     const btnModalEdit = $('#btnModalEdit');
     const btnModalDelete = $('#btnModalDelete');
     const btnSaveChanges = $('#btnSaveChanges');
+    
+    // inputEditElements.attr('disabled', true);
+    
+  
+    modalElement.on('shown.bs.modal', (ev) => {
+        $('.select2').select2();
 
-    modalElement.on('show.bs.modal', (ev) => {
-        console.dir(ev.relatedTarget);
+        $('#birthDate').datepicker({
+        altField: '#altDate',
+        altFormat: 'mm/dd/yy',
+        dateFormat: 'dd-mm-yy',
+        maxDate: '-18y',
+        changeYear: true,
+        changeMonth: true,
+        });
+    
+        $('#birthDate').mask('99-99-9999');
+    
+        $.ajax({
+        method: 'GET',
+        url: baseUrl('question_group', true),
+        dataType: 'json',
+        headers: {
+            'Authorization' : 'Bearer ' + Cookies.get('access_token')
+        }
+        })
+        .done((resData) => {
+        try {
+            let questionGroupData = [];
+            resData.data.forEach(element => {
+            questionGroupData.push({
+                id: parseInt(element.group_id),
+                text: element.question_group
+            })
+            });
+    
+            $('#question-group-select').select2('destroy');
+            $('#question-group-select').select2({ data: questionGroupData });
+            console.log(JSON.stringify(questionGroupData));
+        }
+        catch (e) {
+            console.error(e.message);
+        }
+        })
+        .fail((res) => {
+        try {
+            console.error(res.statusText);
+        }
+        catch(e) {
+            console.error(e.message);
+        }
+        });
+    
+        const id = $(ev.relatedTarget).data('id');
+        console.log(participantData);
+        for (const key in participantData[id]) {
+            if (participantData[id].hasOwnProperty(key)) {
+                const element = participantData[id][key];
+                $('[name="' + key + '"]').val(participantData[id][key]);
+            }
+        }
+        
+        
         // $('#fullname-edit').val(ev.relatedTarget.data
     });
-
-    inputEditElement.dblclick((ev) => {
-        ev.preventDefault();
-        ev.target.readOnly = !ev.target.readOnly;
-        console.dir(ev);
-    });
+    
+    // $('.input-edit').dblclick((ev) => {
+    //     ev.preventDefault();
+    //     ev.target.disabled = !ev.target.disabled;
+    //     console.dir(ev);
+    // });
 
     btnModalEdit.click((ev) => {
         ev.preventDefault();
         ev.target.disabled = true;
-        inputEditElement.trigger('dblclick');
+        inputEditElements.trigger('dblclick');
     });
 
     btnModalDelete.click((ev) => {
@@ -264,8 +412,13 @@ $(document).ready(function() {
         });
     })
 
-    inputEditElement.change((ev) => {
+    inputEditElements.change((ev) => {
         btnSaveChanges.prop('disabled', false);
     });
+
+    btnSaveChanges.click((ev) => {
+        ev.preventDefault();
+        $('#editForm').trigger('submit');
+    })
 
 });

@@ -6,7 +6,7 @@ use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\Exception\ServerException;
 
-class Participant extends CI_Controller {
+class Participant extends MY_Controller {
     private $client = null;
 
     public function __construct()
