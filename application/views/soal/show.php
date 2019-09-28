@@ -6,7 +6,8 @@
             // 'datatables.net-dt/css/jquery.dataTables.min.css',
             'https://cdn.datatables.net/1.10.18/css/jquery.dataTables.min.css',
             'datatables.net-responsive-dt/css/responsive.dataTables.min.css',
-            'spinkit/css/spinkit.css'
+            'spinkit/css/spinkit.css',
+            '../css/soal.show.css'
         ]
     ]);?>
 <body>
@@ -25,11 +26,56 @@
           </div><!-- d-flex -->
 
         <div class="br-pagebody">
-          <div class="br-section-wrapper position-relative mb-4" style="height: 64vh;">
+          <div class="br-section-wrapper position-relative mb-4">
             <div data-id="<?php echo $id;?>" id="examCarousel" class="exam slide">
               <div class="carousel-inner">
                 <div class="carousel-item active">
-                  <p>
+                  <div class="container">
+                    <div class="col-md-12">
+                      <div class="question-main">
+                        <div class="title">
+                          <span>2-Lorem ipsum do yo lorem acc actual expoumd bla bla ?</span>
+                          <img src="https://via.placeholder.com/300x560.png"/>
+                        </div>
+                        <div class="row">
+                          <div class="col-md-12">
+                            <div class="answer check">
+                              <div class="radio">
+                                <input type="radio" id="radio20" name="text">
+                                <label class="a" for="radio20">
+                                  <!-- <span>hello</span> -->
+                                  <img src="https://via.placeholder.com/360x360.png"/>
+                                </label>
+                              </div>
+                            </div>
+                            <!--answer-->
+                          </div>
+                          <div class="col-md-12">
+                            <div class="answer check">
+                              <div class="radio">
+                                <input type="radio" id="radio21" name="text">
+                                <label class="b" for="radio21"><span>hello codepen!</span></label>
+                              </div>
+                            </div>
+                            <!--answer-->
+                          </div>
+
+                          <div class="col-md-12">
+                            <div class="answer check">
+                              <div class="radio">
+                                <input type="radio" id="radio22" name="text">
+                                <label class="c" for="radio22"><span>hello world</span></label>
+                              </div>
+                            </div>
+                            <!--answer-->
+                          </div>
+                        </div>
+                        <!--./row-->
+                      </div>
+                      <!--./question-main-->
+                    </div>
+                  </div>
+                  <!-- <p>
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos voluptatem rem, voluptatum quo incidunt architecto nobis accusamus adipisci cupiditate nihil odio. Consequatur, quis. Impedit voluptatem modi deserunt iste, dicta veniam?
                   </p>
                   <br/>
@@ -38,7 +84,7 @@
                     <li>Java</li>  
                     <li>JavaScript</li>  
                     <li>SQL</li>  
-                  </ol>  
+                  </ol>   -->
                 </div>
                 <div class="carousel-item">
                   <p>
@@ -76,7 +122,9 @@
                 <span class="sr-only">Next</span>
               </a> -->
             </div>
-            <ol class="exam-indicators bg-primary">
+           
+          </div><!-- br-section-wrapper -->
+          <ol class="exam-indicators bg-primary">
               <li data-target="#examCarousel" data-slide-to="0" class="active">
                 <span>1</span>
               </li>
@@ -87,9 +135,8 @@
                 <span>3</span>
               </li>
             </ol>
-          </div><!-- br-section-wrapper -->
         </div><!-- br-pagebody -->
-
+        <?php $this->load->view('template/footer');?>
     </div><!-- br-mainpanel -->
     <!-- ########## END: MAIN PANEL ########## -->
 
