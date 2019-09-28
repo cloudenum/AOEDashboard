@@ -18,15 +18,35 @@
     <div class="br-mainpanel">
         <?php $this->load->view('template/breadcrumb');?>
         <div class="br-pagetitle">
-              <i class="icon fad fa-search"></i>
-              <div>
-                  <h4>Preview Soal</h4>
-                  <p class="mg-b-0">Soal Ujian Masuk Universitas AMIKOM Yogyakarta</p>
-              </div>
-          </div><!-- d-flex -->
-
+          <i class="icon fad fa-search"></i>
+          <div>
+              <h4>Preview Soal</h4>
+              <p class="mg-b-0">Soal Ujian Masuk Universitas AMIKOM Yogyakarta</p>
+          </div>
+        </div><!-- d-flex -->
+        <div class="exam-indicators-container bg-primary">
+          <div class="exam-controls exam-control-prev" id="btnExamPrev" role="button" data-slide="prev">
+            <span class="exam-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Prev</span>
+          </div>
+          <div class="exam-controls exam-control-next" id="btnExamNext" role="button" data-slide="next">
+            <span class="exam-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+          </div>
+          <ol class="exam-indicators" id="examIndicators">
+            <li data-target="#examCarousel" data-slide-to="0" class="active">
+              <span>1</span>
+            </li>
+            <li data-target="#examCarousel" data-slide-to="1">
+              <span>2</span>
+            </li>
+            <li data-target="#examCarousel" data-slide-to="2">
+              <span>3</span>
+            </li>
+          </ol>
+        </div>
         <div class="br-pagebody">
-          <div class="br-section-wrapper position-relative mb-4">
+          <div class="br-section-wrapper">
             <div data-id="<?php echo $id;?>" id="examCarousel" class="exam slide">
               <div class="carousel-inner">
                 <div class="carousel-item active">
@@ -34,37 +54,45 @@
                     <div class="col-md-12">
                       <div class="question-main">
                         <div class="title">
-                          <span>2-Lorem ipsum do yo lorem acc actual expoumd bla bla ?</span>
-                          <img src="https://via.placeholder.com/300x560.png"/>
+                          <div class="row">
+                            <div class="col-sm-12">
+                              <p>2-Lorem ipsum do yo lorem acc actual expoumd bla bla ?</p>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col-sm-12">
+                              <img src="https://via.placeholder.com/300x560.png"/>
+                            </div>
+                          </div>
+                          
                         </div>
                         <div class="row">
-                          <div class="col-md-12">
+                          <div class="col-sm-12">
                             <div class="answer check">
                               <div class="radio">
-                                <input type="radio" id="radio20" name="text">
-                                <label class="a" for="radio20">
-                                  <!-- <span>hello</span> -->
-                                  <img src="https://via.placeholder.com/360x360.png"/>
+                                <input type="radio" id="q1radio20" name="question1">
+                                <label class="a" for="q1radio20">
+                                  <span>hello</span>
                                 </label>
                               </div>
                             </div>
                             <!--answer-->
                           </div>
-                          <div class="col-md-12">
+                          <div class="col-sm-12">
                             <div class="answer check">
                               <div class="radio">
-                                <input type="radio" id="radio21" name="text">
-                                <label class="b" for="radio21"><span>hello codepen!</span></label>
+                                <input type="radio" id="q1radio21" name="question1">
+                                <label class="b" for="q1radio21"><span>hello codepen!</span></label>
                               </div>
                             </div>
                             <!--answer-->
                           </div>
 
-                          <div class="col-md-12">
+                          <div class="col-sm-12">
                             <div class="answer check">
                               <div class="radio">
-                                <input type="radio" id="radio22" name="text">
-                                <label class="c" for="radio22"><span>hello world</span></label>
+                                <input type="radio" id="q1radio22" name="question1">
+                                <label class="c" for="q1radio22"><span>hello world</span></label>
                               </div>
                             </div>
                             <!--answer-->
@@ -87,29 +115,115 @@
                   </ol>   -->
                 </div>
                 <div class="carousel-item">
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos voluptatem rem, voluptatum quo incidunt architecto nobis accusamus adipisci cupiditate nihil odio. Consequatur, quis. Impedit voluptatem modi deserunt iste, dicta veniam?
-                  </p>
-                  <br/>
-                  <ol type="A">  
-                    <li>HTML</li>  
-                    <li>Java</li>  
-                    <li>JavaScript</li>  
-                    <li>SQL</li>  
-                  </ol>
+                <div class="container">
+                    <div class="col-md-12">
+                      <div class="question-main">
+                        <div class="title">
+                          <div class="row">
+                            <div class="col-sm-12">
+                              <img src="https://via.placeholder.com/300x560.png"/>
+                            </div>
+                          </div>
+                          
+                        </div>
+                        <div class="row">
+                          <div class="col-md-6">
+                            <div class="answer check">
+                              <div class="radio">
+                                <input type="radio" id="q2radio20" name="question2">
+                                <label class="a" for="q2radio20">
+                                  <!-- <span>hello</span> -->
+                                  <img src="https://via.placeholder.com/360x360.png"/>
+                                </label>
+                              </div>
+                            </div>
+                            <!--answer-->
+                          </div>
+
+                          <div class="col-md-6">
+                            <div class="answer check">
+                              <div class="radio">
+                                <input type="radio" id="q2radio21" name="question2">
+                                <label class="b" for="q2radio21">
+                                  <img src="https://via.placeholder.com/360x360.png"/>
+                                </label>
+                              </div>
+                            </div>
+                            <!--answer-->
+                          </div>
+
+                          <div class="col-md-6">
+                            <div class="answer check">
+                              <div class="radio">
+                                <input type="radio" id="q2radio22" name="question2">
+                                <label class="c" for="q2radio22">
+                                  <img src="https://via.placeholder.com/360x360.png"/>
+                                </label>
+                              </div>
+                            </div>
+                            <!--answer-->
+                          </div>
+                        </div>
+                        <!--./row-->
+                      </div>
+                      <!--./question-main-->
+                    </div>
+                  </div>
                 </div>
                 <div class="carousel-item">
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos voluptatem rem, voluptatum quo incidunt architecto nobis accusamus adipisci cupiditate nihil odio. Consequatur, quis. Impedit voluptatem modi deserunt iste, dicta veniam?
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos voluptatem rem, voluptatum quo incidunt architecto nobis accusamus adipisci cupiditate nihil odio. Consequatur, quis. Impedit voluptatem modi deserunt iste, dicta veniam?
-                  </p>
-                  <br/>
-                  <ol type="A">  
-                    <li>HTML</li>  
-                    <li>Java</li>  
-                    <li>JavaScript</li>  
-                    <li>SQL</li>  
-                  </ol>
+                <div class="container">
+                    <div class="col-md-12">
+                      <div class="question-main">
+                        <div class="title">
+                          <div class="row">
+                            <div class="col-sm-12">
+                              <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ab dolore quam doloremque nam, ipsa doloribus iusto aliquam natus eveniet minus sed. Molestiae porro quae eligendi molestias sit suscipit, totam dolorum!</p>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col-sm-12">
+                              <img src="https://via.placeholder.com/300x560.png"/>
+                            </div>
+                          </div>
+                          
+                        </div>
+                        <div class="row">
+                          <div class="col-md-12">
+                            <div class="answer check">
+                              <div class="radio">
+                                <input type="radio" id="q3radio20" name="question3">
+                                <label class="a" for="q3radio20">
+                                  <span>hello</span>
+                                </label>
+                              </div>
+                            </div>
+                            <!--answer-->
+                          </div>
+                          <div class="col-md-12">
+                            <div class="answer check">
+                              <div class="radio">
+                                <input type="radio" id="q3radio21" name="question3">
+                                <label class="b" for="q3radio21"><span>hello codepen!</span></label>
+                              </div>
+                            </div>
+                            <!--answer-->
+                          </div>
+
+                          <div class="col-md-12">
+                            <div class="answer check">
+                              <div class="radio">
+                                <input type="radio" id="q3radio22" name="question3">
+                                <label class="c" for="q3radio22"><span>hello world</span></label>
+                              </div>
+                            </div>
+                            <!--answer-->
+                          </div>
+                        </div>
+                        <!--./row-->
+                      </div>
+                      <!--./question-main-->
+                    </div>
+                  </div>
                 </div>
               </div>
               
@@ -124,17 +238,7 @@
             </div>
            
           </div><!-- br-section-wrapper -->
-          <ol class="exam-indicators bg-primary">
-              <li data-target="#examCarousel" data-slide-to="0" class="active">
-                <span>1</span>
-              </li>
-              <li data-target="#examCarousel" data-slide-to="1">
-                <span>2</span>
-              </li>
-              <li data-target="#examCarousel" data-slide-to="2">
-                <span>3</span>
-              </li>
-            </ol>
+          
         </div><!-- br-pagebody -->
         <?php $this->load->view('template/footer');?>
     </div><!-- br-mainpanel -->

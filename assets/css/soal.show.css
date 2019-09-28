@@ -7,18 +7,68 @@
   transition: 0.5s;
 }
 
-.exam-indicators {
+.exam-indicators-container {
   position: fixed;
-  z-index: 15;
+  display: flex;
+  z-index: 9999;
   bottom: 0;
   right: 0;
   left: 0;
+}
+
+.exam-control-prev, 
+.exam-control-next {
   display: flex;
-  justify-content: initial;
+  justify-content: center;
+  color: #fff;
+  text-align: center;
+  margin: 0 5px;
+  opacity: 0.5;
+  transition: opacity 100ms ease-in;
+  -moz-transition: opacity 100ms ease-in;
+  -webkit-transition: opacity 100ms ease-in;
+	-o-transition: opacity 100ms ease-in;
+	-ms-transition: opacity 100ms ease-in;
+}
+
+.exam-control-prev:focus, 
+.exam-control-next:focus,
+.exam-control-prev:hover, 
+.exam-control-next:hover {
+  opacity: 1;
+}
+
+.exam-control-prev-icon, 
+.exam-control-next-icon {
+  display: inline-block;
+  width: 20px;
+  height: 20px; 
+}
+
+.exam-indicators-container .exam-control-prev-icon:before,
+.exam-indicators-container .exam-control-next-icon:before {
+  font-family: "Font Awesome 5 Pro";
+  font-weight: 300;
+  font-size: 2rem;
+}
+
+.exam-indicators-container .exam-control-prev-icon:before {
+  content: "\f104"
+}
+
+.exam-indicators-container .exam-control-next-icon:before {
+  content: "\f105"
+}
+
+.exam-indicators {
+  white-space: nowrap;
+  display: block;
+  /* display: inline-block; */
+  /* justify-content: initial; */
+  overflow-x: auto;
   padding: 0.5rem 0.25rem;
   margin: 0 auto;
   list-style: none;
-  border-radius: 0 0 3px 3px;
 }
 
 .exam-indicators .active {
@@ -26,10 +76,11 @@
 }
 
 .exam-indicators li {
-  position: initial;
+  /* position: initial; */
   cursor: pointer;
-  text-indent: initial;
+  /* text-indent: initial; */
   width: 2rem;
+  display: inline-block;
   height: 2rem;
   border-radius: 5px;
   margin-left: 3px;
@@ -47,6 +98,11 @@
 
 .exam .carousel-item {  
   overflow-y: auto;
+}
+
+.carousel-item.active, .carousel-item-next, .carousel-item-prev {
+  display: block;
+  transition: transform 0.2s ease;
 }
 
 /* #quiz
@@ -76,7 +132,7 @@
 	padding-top: 1rem;
 }
 
-.question-main .title span {
+.question-main .title p {
 	font-size: 1rem;
   font-weight: 600;
   margin: 0.5rem;
