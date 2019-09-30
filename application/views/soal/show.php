@@ -114,8 +114,9 @@
                     <li>SQL</li>  
                   </ol>   -->
                 </div>
-                <div class="carousel-item">
-                <div class="container">
+                <?php
+                /*<div class="carousel-item">
+                  <div class="container">
                     <div class="col-md-12">
                       <div class="question-main">
                         <div class="title">
@@ -171,7 +172,7 @@
                   </div>
                 </div>
                 <div class="carousel-item">
-                <div class="container">
+                  <div class="container">
                     <div class="col-md-12">
                       <div class="question-main">
                         <div class="title">
@@ -224,7 +225,7 @@
                       <!--./question-main-->
                     </div>
                   </div>
-                </div>
+                </div>*/?>
               </div>
               
               <!-- <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
