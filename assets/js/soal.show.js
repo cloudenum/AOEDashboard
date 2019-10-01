@@ -31,3 +31,7 @@ $(function(){
   //   url: baseUrl('')
   // })
 })
+
+$( document ).ready(function() {
+  $( "#btnLeftMenu" ).remove();
+});

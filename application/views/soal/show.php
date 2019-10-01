@@ -9,7 +9,7 @@
             'spinkit/css/spinkit.css',
             '../css/soal.show.css'
         ]
-    ]);?>
+    ]); ?>
 <body>
     <?php $this->load->view('template/sidebar');?>
     <?php $this->load->view('template/navbar');?>

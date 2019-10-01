@@ -39,6 +39,14 @@ class Soal extends MY_Controller {
     }
   }
 
+  public function show_student() {
+    if ($this->input->get('id')){
+      $this->load->view('soal/show_student', ['id' => $this->input->get('id')]);
+    } else {
+      show_404();
+    }
+  }
+
 }
 
 

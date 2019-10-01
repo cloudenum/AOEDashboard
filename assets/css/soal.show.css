@@ -301,3 +301,7 @@
 .answer.check .radio input[type="radio"]:checked + label:before {
 	color: #fff;
 }
+
+.answer-wrapper {
+  margin-bottom: 10px;
+}
