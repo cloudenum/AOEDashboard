@@ -24,7 +24,7 @@
                       <div class="form-group mg-b-10-force">
                           <label class="form-control-label">Jenis Pengumuman: <span class="tx-danger">*</span></label>
                           <select name="question_group" id="question-group-select" class="form-control select2" data-placeholder="Pilih soal" required>
-                            <option>Pillih ...</option>  
+                            <option>Pilih ...</option>  
                             <option>Pengumuman hasil ujian</option>
                           </select>
                       </div>
