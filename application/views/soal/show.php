@@ -49,7 +49,8 @@
           <div class="br-section-wrapper">
             <div data-id="<?php echo $id;?>" id="examCarousel" class="exam slide">
               <div class="carousel-inner">
-                <div class="carousel-item active">
+                <?php 
+                /*<div class="carousel-item active">
                   <div class="container">
                     <div class="col-md-12">
                       <div class="question-main">
@@ -114,8 +115,7 @@
                     <li>SQL</li>  
                   </ol>   -->
                 </div>
-                <?php
-                /*<div class="carousel-item">
+                <div class="carousel-item">
                   <div class="container">
                     <div class="col-md-12">
                       <div class="question-main">

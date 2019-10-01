@@ -281,6 +281,10 @@
   content: "D";
 }
 
+.check .radio label.e:before {
+  content: "E";
+}
+
 .answer.check .radio input[type="radio"] {
 	margin-left: 0 !important;
 }

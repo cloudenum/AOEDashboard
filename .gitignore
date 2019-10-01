@@ -37,3 +37,4 @@ _template/
 *.sublime-project
 /tests/tests/
 /tests/results/
+_template.rar
