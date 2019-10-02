@@ -69,6 +69,42 @@ if(typeof Cookies.get('access_token') === "undefined") {
     });
 }
 
+async function fetchGetData(url = '', data = {}) {
+    var esc = encodeURIComponent;
+    var query = Object.keys(data)
+        .map(k => esc(k) + '=' + esc(data[k]))
+        .join('&');
+
+    // Default options are marked with *
+    const response = await fetch(url + '?' + query, {
+      method: 'GET', // *GET, POST, PUT, DELETE, etc.
+      mode: 'cors', // no-cors, *cors, same-origin
+      credentials: 'include', // include, *same-origin, omit
+      headers: {
+        'Authorization' : 'Bearer ' + Cookies.get('access_token')
+      },
+      
+    });
+ 
+    return await response.json(); // parses JSON response into native JavaScript objects
+}
+
+async function fetchPostData(url = '', data = {}) {
+    // Default options are marked with *
+    const response = await fetch(url, {
+      method: 'POST', // *GET, POST, PUT, DELETE, etc.
+      mode: 'cors', // no-cors, *cors, same-origin
+      cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+      credentials: 'include', // include, *same-origin, omit
+      headers: {
+        'Authorization' : 'Bearer ' + Cookies.get('access_token')
+      },
+      body: data // body data type must match "Content-Type" header
+    });
+ 
+    return await response.json(); // parses JSON response into native JavaScript objects
+}
+
 $(function() {
     $('.custom-file-input').each(function() {
 		var $input	 = $(this),
