@@ -27,10 +27,10 @@
                 <div class="card-profile-img">
                     <img src="https://via.placeholder.com/500" alt="Photo Profile">
                 </div><!-- card-profile-img -->
-                <h4 class="tx-normal tx-roboto tx-white">...</h4>
-                <p class="mg-b-25">...</p>
+                <h4 id="profileName" class="tx-normal tx-roboto tx-white">...</h4>
+                <p id="schoolHeader" class="mg-b-25">...</p>
 
-                <p class="wd-md-500 mg-md-l-auto mg-md-r-auto mg-b-25">Singer, Lawyer, Achiever, Wearer of unrelated hats, Data Visualizer, Mayonaise Tester. I don't know what alt-tab does. Storyteller.</p>
+                <p id="addressHeader" class="wd-md-500 mg-md-l-auto mg-md-r-auto mg-b-25">Singer, Lawyer, Achiever, Wearer of unrelated hats, Data Visualizer, Mayonaise Tester. I don't know what alt-tab does. Storyteller.</p>
 
                 <p class="mg-b-0 tx-24">
                 <!-- <a href="" class="tx-white-8 mg-r-5"><i class="fab fa-facebook-official"></i></a>
@@ -86,7 +86,8 @@
     <?php $this->load->view('template/js', [
         'js' => [
             // 'https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.8/js/select2.min.js',
-            // 'https://cdnjs.cloudflare.com/ajax/libs/parsley.js/2.8.1/parsley.min.js'
+            // 'https://cdnjs.cloudflare.com/ajax/libs/parsley.js/2.8.1/parsley.min.js',
+            '../js/participant.profile.js',
         ]
     ]);?>
     <!-- <script src="http://localhost/amikomexam/assets/js/soal.upload.js"></script> -->
