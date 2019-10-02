@@ -12,7 +12,7 @@ class Api extends Client {
     // private $_client = null;
 
     private function __construct() {
-        parent::__construct(['base_uri' => 'http://indiarkmedia.com/api/v2/']);        
+        parent::__construct(['base_uri' => 'http://localhost/aoeapi/api/v2/']);        
         // $this->_client = new Client(['base_uri' => 'http://indiarkmedia.com/api/v2/']);
     }
     

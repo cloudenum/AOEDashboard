@@ -434,11 +434,18 @@ if ( ! function_exists('show_404'))
 	 * @param	bool
 	 * @return	void
 	 */
-	function show_404($page = '', $log_error = TRUE)
-	{
-		$_error =& load_class('Exceptions', 'core');
-		$_error->show_404($page, $log_error);
-		exit(4); // EXIT_UNKNOWN_FILE
+	// function show_404($page = '', $log_error = TRUE)
+	// {
+	// 	$_error =& load_class('Exceptions', 'core');
+	// 	$_error->show_404($page, $log_error);
+	// 	exit(4); // EXIT_UNKNOWN_FILE
+	// }
+	function show_404(){
+		$ci = get_instance();
+		$ci->output->set_status_header(404);
+		$ci->load->view('errors/html/error_404');
+		echo $ci->output->get_output();
+		exit(4);
 	}
 }
 

@@ -50,12 +50,13 @@ class Login extends CI_Controller {
                 'user_id' => $data->id,
                 'username' => $login,
                 'access_token' => $data->access_token,
-                'logged_in' => true
+                'logged_in' => true,
+                'is_admin' => $data->is_admin
             );
 
             $this->input->set_cookie('username', $login, 0);
             $this->input->set_cookie('user_id', $data->id, 0);
-            $this->input->set_cookie('access_gate', $password, 0);            
+            // $this->input->set_cookie('access_gate', $password, 0);            
             $this->input->set_cookie('access_token', $data->access_token, 3600);
             $this->session->set_userdata($ses_data);
 
@@ -85,7 +86,6 @@ class Login extends CI_Controller {
                     'message' => $message
                 ]
             ]);
-
             
             $json_data = array(
                 // 'data' => $ses_data,
@@ -135,12 +135,6 @@ class Login extends CI_Controller {
             redirect('login','refresh');
         }        
     }
-
-    public function logout(){
-        $this->session->sess_destroy();
-        redirect(base_url());
-    }
-
 }
 
 /* End of file Login.php */

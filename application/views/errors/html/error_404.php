@@ -14,7 +14,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <h1 class="tx-100 tx-xs-140 tx-normal tx-inverse tx-roboto mg-b-0">404!</h1>
         <h5 class="tx-xs-24 tx-normal tx-info mg-b-30 lh-5">The page your are looking for has not been found.</h5>
         <p class="tx-16 mg-b-30">The page you are looking for might have been removed, had its name changed,
-or unavailable. Maybe you could try a search:</p>
+or unavailable</p>
 
         <div class="d-flex justify-content-center">
           <a href=<?php echo base_url() ?>>AMIKOM</a>

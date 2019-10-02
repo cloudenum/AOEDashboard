@@ -23,11 +23,17 @@ class Participant extends MY_Controller {
     
     public function index()
     {
-        redirect(base_url('participant/list'));
+        if(!$this->session->is_admin){
+            redirect(base_url('participant/profile'),'refresh');
+        } else {
+            redirect(base_url('participant/list'), 'refresh');
+        }
     }
 
     public function list() 
     {
+        $this->admin_only();
+        
         if ($this->config->load('navlinks')) {
             $this->config->set_item('active_child_navlinks', 0);
         }
@@ -37,6 +43,8 @@ class Participant extends MY_Controller {
 
     public function add($mode = 'view') 
     {
+        $this->admin_only();
+
         if ($this->config->load('navlinks')) {
             $this->config->set_item('active_child_navlinks', 1);
         }
@@ -65,7 +73,29 @@ class Participant extends MY_Controller {
         }   
     }
 
+    public function profile() {
+        $this->participant_only();
+
+        if ($this->config->load('navlinks')) {
+            $this->config->set_item('active_navlinks', 1);
+        }
+
+        $this->load->view('participant/profile');
+    }
+
+    public function exam() {
+        $this->participant_only();
+
+        if ($this->config->load('navlinks')) {
+            $this->config->set_item('active_navlinks', 2);
+        }
+
+        $this->load->view('participant/exam');
+    }
+
     private function add_manual($data) {
+        $this->admin_only();
+
         try {            
             // var_dump($_FILES);
             $multipart = [];
@@ -141,6 +171,7 @@ class Participant extends MY_Controller {
     public function fetch() 
     {
         // echo json_encode($this->input->get());
+        $this->admin_only();
         try {
             $request_option = [
                 'headers' => [
@@ -158,7 +189,6 @@ class Participant extends MY_Controller {
             echo $e->getResponse()->getBody(true);
         }
     }
-
 }
 
 /* End of file Participant.php */
