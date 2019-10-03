@@ -1,6 +1,6 @@
 <?php
  if ($this->config->load('navlinks')) {
-    $navlinks = $this->config->item('navlinks');
+    $navlinks = $this->session->is_admin ? $this->config->item('admin_navlinks') : $this->config->item('participants_navlinks');
     $active_navlinks = $this->config->item('active_navlinks');
     $active_child_navlinks = $this->config->item('active_child_navlinks');
     // echo '<pre>';print_r($navlinks);echo '</pre>';

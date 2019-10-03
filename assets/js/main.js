@@ -1,5 +1,5 @@
 const baseUrl = (uri = "", api = false) => {
-    return api ? "http://indiarkmedia.com/api/v2/" + uri : "http://localhost/amikomexam/" + uri;
+    return api ? "http://localhost/aoeapi/api/v2/" + uri : "http://localhost/amikomexam/" + uri;
 } 
 
 const timedLog = (message) => {
@@ -25,25 +25,17 @@ xhrPool.abortAll = function() {
 
 // Relogin purpose
 if(typeof Cookies.get('access_token') === "undefined") {
-    xhrPool.abortAll();
+    // xhrPool.abortAll();
     timedLog('Relogin attempt ...')
     $.ajax({
-        method: 'POST',
-        url: baseUrl('authenticate', true),
-        data: {
-            login: Cookies.get('username'),
-            password: Cookies.get('access_gate'),
-        },
-        headers: {
-            'Content-Type': 'application/x-www-form-urlencoded'
-        }
+        url: baseUrl('login/refresh_token'),
     }).done((data, textStatus, xhr) => {
         try {
             if (xhr.statusText === "OK") {
-                const inAnHour = 1/24;
-                window.location.reload();
-                Cookies.set('access_token', data.data.access_token, { expires: inAnHour });
-                Cookies.set('user_id', data.data.id, { expires: inAnHour });
+                // const inAnHour = 1/24;
+                // window.location.reload();
+                // Cookies.set('access_token', data.data.access_token, { expires: inAnHour });
+                // Cookies.set('user_id', data.data.id, { expires: inAnHour });
                 timedLog('Relogin success.');
             } else {
                 Swal.fire("Went wrong", xhr.statusText, 'error');
@@ -69,14 +61,28 @@ if(typeof Cookies.get('access_token') === "undefined") {
     });
 }
 
+function beforeDDay(d1, d2) {
+    return d1.getFullYear() >= d2.getFullYear() &&
+      d1.getMonth() >= d2.getMonth() &&
+      d1.getDate() > d2.getDate();
+}
+
+function sameDay(d1, d2) {
+    return d1.getFullYear() === d2.getFullYear() &&
+      d1.getMonth() === d2.getMonth() &&
+      d1.getDate() === d2.getDate();
+}
+
 async function fetchGetData(url = '', data = {}) {
     var esc = encodeURIComponent;
     var query = Object.keys(data)
-        .map(k => esc(k) + '=' + esc(data[k]))
+        .map(key => esc(key) + '=' + esc(data[key]))
         .join('&');
+    
+    if (query !== '') url += '?';
 
     // Default options are marked with *
-    const response = await fetch(url + '?' + query, {
+    const response = await fetch(url + query, {
       method: 'GET', // *GET, POST, PUT, DELETE, etc.
       mode: 'cors', // no-cors, *cors, same-origin
       credentials: 'include', // include, *same-origin, omit
@@ -84,25 +90,96 @@ async function fetchGetData(url = '', data = {}) {
         'Authorization' : 'Bearer ' + Cookies.get('access_token')
       },
       
-    });
+    }).then((res) => {
+        if(!res.ok) {
+            Swal.fire(res.status + ' ' + res.statusText, ' ', 'error');
+        }
+        return res;
+    }); 
  
-    return await response.json(); // parses JSON response into native JavaScript objects
+    return response.json();
 }
 
-async function fetchPostData(url = '', data = {}) {
-    // Default options are marked with *
+async function fetchPostData(url, data = {}) {
     const response = await fetch(url, {
-      method: 'POST', // *GET, POST, PUT, DELETE, etc.
-      mode: 'cors', // no-cors, *cors, same-origin
-      cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
-      credentials: 'include', // include, *same-origin, omit
+      method: 'POST', 
+      mode: 'cors', 
+      cache: 'no-cache', 
+      credentials: 'include', 
       headers: {
         'Authorization' : 'Bearer ' + Cookies.get('access_token')
       },
-      body: data // body data type must match "Content-Type" header
-    });
+      body: data
+    }).then((res) => {
+        if(!res.ok) {
+            Swal.fire(res.status + ' ' + res.statusText, ' ', 'error');
+        }
+        return res;
+    });    
  
-    return await response.json(); // parses JSON response into native JavaScript objects
+    return await response.json();
+}
+
+
+/**
+ * Generate table data from remote source in an existing table element 
+ * data.columns = {}
+ * data.fetchQuery = {}
+ * @param {JQuery} tableJqElement 
+ * @param {String} url 
+ * @param {Object} thead 
+ * @param {Object} data 
+ */
+async function fetchTable(tableJqElement, url, options = {}) {
+
+    if (options.thead != null){
+        tableJqElement.children('thead').children().remove();
+        options.thead.forEach(value => {
+            tableJqElement.children('thead').append(
+                $('<th>').text(value)
+            );
+        });
+    }
+
+   const response = await fetchGetData(url, options.fetchQuery)
+    .then((jsonData) => {
+        if (jsonData.data != null) {
+            jsonData.data.forEach((rowData, index) => {
+                tableJqElement.children('tbody').append('<tr></tr>');
+
+                if (options.columns != null) {
+                    options.columns.forEach((column, j) => {
+                        if (rowData.hasOwnProperty(column.data)){
+                            var columnValue = '';
+                            if (column.render == undefined) 
+                                columnValue = rowData[column.data];   
+                            else 
+                                columnValue = column.render(rowData[column.data]);
+
+                            tableJqElement.children('tbody').children().eq(index).append(
+                                '<td>' + columnValue + '</td>'
+                            );
+                        }
+                    });
+                } else {
+                    for (const key in rowData) {
+                        if (rowData.hasOwnProperty(key)) {
+                            const columnValue = rowData[key];
+                            tableJqElement.children('tbody').children().eq(index).append(
+                                '<td>' + columnValue + '</td>'
+                            );
+                        }
+                    }
+                }
+            });
+        } else {
+            tableJqElement.children('tbody').append('<tr><td class="tx-center" colspan=6 >Jadwal belum ada.</td></tr>');
+        }
+
+        return jsonData;
+    });
+
+    return await response;
 }
 
 $(function() {

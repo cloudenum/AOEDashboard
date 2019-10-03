@@ -143,7 +143,7 @@
                         <div class="col-lg-4">
                             <div class="form-group mg-b-10-force">
                             <label class="form-control-label">Address</label>
-                            <input class="form-control" type="text" name="address" placeholder="Enter address">
+                            <textarea class="form-control" name="address" placeholder="Enter address"></textarea>
                             </div>
                         </div><!-- col-4 -->
                         <div class="col-lg-4">

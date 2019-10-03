@@ -7,5 +7,17 @@
           redirect('/login', 'refresh');
       }
     }
+
+    protected function admin_only() {
+      if(!$this->session->is_admin) {
+        show_404();
+      }
+    }
+
+    protected function participant_only() {
+      if($this->session->is_admin) {
+        show_404();
+      }
+    }
   }
 ?>
