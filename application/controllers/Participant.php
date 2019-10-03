@@ -80,7 +80,9 @@ class Participant extends MY_Controller {
             $this->config->set_item('active_navlinks', 1);
         }
 
-        $this->load->view('participant/profile');
+        if ($this->session->user_id) {
+            $this->load->view('participant/profile', array('user_id' => $this->session->user_id));
+        }
     }
 
     public function exam() {
